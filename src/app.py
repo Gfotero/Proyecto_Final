@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 
+
 # Configurar el modo ancho automáticamente
 st.set_page_config(layout="wide")
 
@@ -11,7 +12,7 @@ def get_base64_of_bin_file(bin_file):
     return base64.b64encode(data).decode()
 
 # Cargar la imagen de fondo
-background_image = get_base64_of_bin_file('my_app/fondo_claro.jpg')
+background_image = get_base64_of_bin_file('my_app/fondo_morado.jpg')
 
 # Aplicar el estilo CSS para la imagen de fondo y los inputs
 page_bg_img = f'''
@@ -23,9 +24,7 @@ page_bg_img = f'''
 </style>
 '''
 # background-size: unset;
-
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
 
 # Definir las páginas
 port = st.Page(
@@ -33,8 +32,21 @@ port = st.Page(
 
 imp = st.Page(
     "my_app/pages/import.py", title="Importancia del Proyecto", icon=":material/dashboard:")
+
+conj = st.Page(
+    "my_app/pages/conjunto.py", title="Origen Datos", icon=":material/dataset:")
+
 dat = st.Page(
     "my_app/pages/calidad.py", title="Calidad de los Datos", icon=":material/info:")
+
+plot = st.Page(
+    "my_app/pages/plot.py", title="Plotting Geográfico Datos por Severidad", icon=":material/map:")
+
+temp_hum = st.Page(
+    "my_app/pages/tem_hum.py", title="Temperature(F) y Humidity(%) Versus Severity", icon=":material/account_circle:")
+
+traf_civ = st.Page(
+    "my_app/pages/traf_civ.py", title="Traffic_signal y Civil_twilight Versus Severity", icon=":material/account_circle:")
 
 corr = st.Page(
     "my_app/pages/corr.py", title="Matriz de Correlación", icon=":material/grade:")
@@ -42,14 +54,20 @@ corr = st.Page(
 sens_mod = st.Page(
     "my_app/pages/modelos.py", title="Optimización de Modelos", icon=":material/settings:")
 
+roc = st.Page(
+    "my_app/pages/curva.py", title="Curva Roc y Matriz de Confusión", icon=":material/model_training:")
+
 mod = st.Page("modelo.py", title="Modelo Desarrollado", icon=":material/model_training:")
+
+salir = st.Page("my_app/exit.py", title=" ", icon=":material/logout:")
 
 # Crear la navegación
 pg = st.navigation(
     {
-        " ": [port],
-        "Insights Proyecto": [imp, dat, corr, sens_mod],
+        "Home": [port],
+        "Insights Proyecto": [imp,conj, dat, plot,temp_hum,traf_civ,corr, sens_mod, roc],
         "Modelo Desarrollado": [mod],
+        "Salir": [salir]
     }
 )
 
