@@ -52,6 +52,9 @@ desde ../Proyecto_Final/src ejecutar desde el terminal > streamlit run app.py , 
 ## Licencia
 Este proyecto es de código abierto (Open Source) y de libre uso.
 
+## Enlace de la Aplicación en Render
+https://proyecto-final-9wyg.onrender.com
+
 ## Referencias
 
 Documentación de scikit-learn, streamlit y render.

@@ -50,5 +50,8 @@ from ../Final_Project/src run from the terminal > streamlit run app.py , choose 
 ## License
 This project is open source and free to use.
 
+## Application Link in Render
+https://final-project-9wyg.onrender.com
+
 ## References
 Documentation for scikit-learn, streamlit and render.
